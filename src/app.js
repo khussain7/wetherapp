@@ -3,7 +3,7 @@ const path = require("path");
 const res = require("express/lib/response");
 const hbs = require("hbs");
 const app = express();
-const port = 8800;
+const port = process.env.port || 8800;
 const staticPath = path.join(__dirname, "../public");
 const imagePath = path.join(__dirname, "../public/images");
 const cssPath = path.join(__dirname, "../public/css");
@@ -46,5 +46,5 @@ app.get("*", (request, response) =>{
     response.render("error");
     });
 app.listen(port, ()=>{
-    console.log("Server started on port 8800");
+    console.log("Server started on port"+port);
 });
